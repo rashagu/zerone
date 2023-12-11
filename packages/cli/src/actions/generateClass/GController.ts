@@ -134,7 +134,7 @@ export class GController {
         functionDeclaration.setBodyText(
             `return request.${this.methodKey}<DeepRequired<${resType}>>(\`${requestUrl}\`${
                 requestBodySchema ? ',input' : ''
-            });`
+            }, { ...options});`
         );
         const parsedUrl = url.parse(requestUrl, true);
         // 在链接中已存在的query
